@@ -1,13 +1,9 @@
 class Board
 
-  attr_accessor :grid
+  attr_reader :grid
 
-  def initialize(grid=nil)
-    if grid != nil
-      @grid = grid
-    else
-      @grid = [[nil,nil,nil],[nil,nil,nil],[nil,nil,nil]]
-    end
+  def initialize(grid = Array.new(3) { Array.new(3) })
+    @grid = grid
   end
 
   def board
@@ -82,6 +78,14 @@ class Board
       end
     end
     moves
+  end
+
+  def [](pos)
+    @grid[pos.first][pos.last]
+  end
+
+  def []=(pos,mark)
+    @grid[pos.first][pos.last] = mark
   end
 
   #made this to display a playable game

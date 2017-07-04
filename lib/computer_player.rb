@@ -1,7 +1,7 @@
 require "byebug"
 class ComputerPlayer
 
-  attr_reader :board
+  attr_reader :board, :name
   attr_accessor :mark
 
   def initialize(name="AI")
@@ -14,6 +14,7 @@ class ComputerPlayer
 
   def get_move
     wins = @board.winning_moves(@mark)
+    # wins = winning_moves(@mark)
     random_moves = @board.valid_move
     if wins.empty?
       random_moves.sample
@@ -21,5 +22,6 @@ class ComputerPlayer
       wins.sample
     end
   end
+
 
 end

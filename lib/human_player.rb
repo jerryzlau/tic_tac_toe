@@ -13,8 +13,21 @@ class HumanPlayer
     input.split(",").map!(&:to_i)
   end
 
-  def display(board) 
-    p board.board
+  def display(board)
+    print "-" * board.grid.length * 12
+    puts ""
+    board.grid.each do |row|
+      row.each do |pos|
+        if !pos.nil?
+          print " | #{pos} | "
+        else
+          print " |   | "
+        end
+      end
+      print "\n"
+    end
+    print "-" * board.grid.length * 12
+    print "\n"
   end
 
 end
